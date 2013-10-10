@@ -1,0 +1,5 @@
+/**
+	Set up global CSS directives by overriding bootstrap defaults
+*/
+
+@font-family-base: @font-family-serif;
