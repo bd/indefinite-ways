@@ -25,3 +25,8 @@
 .work-media{
 
 }
+
+.show-or-edit{
+	.make-row(@gutter: @grid-gutter-width);
+
+}

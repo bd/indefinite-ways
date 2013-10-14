@@ -10,3 +10,5 @@ coffeescript
 standard-app-packages
 less
 bootstrap3-less
+accounts-ui
+accounts-google
