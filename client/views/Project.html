@@ -3,13 +3,13 @@
 		<div class="row">
 			{{> ProjectLeft}}
 			{{> ProjectCenter}}
-			{{> ProjectRight}}
+			
 		</div>
 	</div>
 </template>
 
 <template name="ProjectLeft">
-	<div class="col-md-3">
+	<div class="description-container">
 		<p>
 			<h2>Project Title</h2>
 		</p>
@@ -24,19 +24,64 @@
 </template>
 
 <template name="ProjectCenter">
-	<div class="col-md-8"
-		 style="border-right:1.5px solid gray; border-left:1.5px solid gray">
-		<img src="https://www.filepicker.io/api/file/r1gC5WvzSpvaQkcqAsDE" 
-			class="img-responsive" 
-			alt="Image">
-		<img src="https://www.filepicker.io/api/file/oyRoiaoBQoiLOuJofFgR"
-			class="img-responsive" 
-			alt="Image">
+	<div class="work-container">
+		<div class="work-item">
+			<div class="work-media">		
+					<img src="https://www.filepicker.io/api/file/r1gC5WvzSpvaQkcqAsDE" 
+							class="img-responsive" 
+							alt="Image">
+			</div>
+			<div class="work-info">
+				<em>Title</em>
+				<br>
+				2012
+				<br>
+				various varied materials
+				<br>
+				10x12x14 in
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, unde, architecto hic suscipit officiis quisquam fugiat dolorem ab aperiam voluptatem temporibus incidunt!
+			</div>	
+			</div>
+		<div class="work-item">
+			<div class="work-media">
+					<img src="https://www.filepicker.io/api/file/oyRoiaoBQoiLOuJofFgR"
+							class="img-responsive" 
+							alt="Image2">
+			</div>
+			<div class="work-info">
+				<em>Lorem ipsum.</em>
+				<br>
+				2013
+				<br>
+				blood, sweat, tears
+				<br>
+				12x15 in
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, id!
+			</div>
+			</div>
+		<div class="work-item">
+			<div class="work-media">
+					<img src="https://www.filepicker.io/api/file/FAL2IcBTXSLLw9hZKzP3" alt="3" class="img-responsive">
+			</div>
+			<div class="work-info">
+				<em>Lorem ipsum.</em>
+				<br>
+				2013
+				<br>
+				buffalo buffalo buffalo buffalo buffalo
+				<br>
+				9x9 in
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aliquid quibusdam illo placeat voluptates magni iusto! Repudiandae atque similique commodi.
+			</div>
+			</div>
 	</div>
 </template>
 
 <template name="ProjectRight">
 	<div class="col-md-1">
-		<!-- <p>something here</p> -->
+	
 	</div>
 </template>

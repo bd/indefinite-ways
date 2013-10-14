@@ -1,5 +1,13 @@
 /**
 	Set up global CSS directives by overriding bootstrap defaults
+	All site-wide variables should be set here. Avoid making changes to upstream
+	sheets. 
 */
 
 @font-family-base: @font-family-serif;
+@font-size-base: 12px;
+
+@line-height-base: 1.33;
+
+@grid-columns: 14;
+

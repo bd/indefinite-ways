@@ -1,0 +1,27 @@
+@border-style: 1.5px solid @gray-light;
+
+.description-container{
+	.make-md-column(4; @gutter: @grid-gutter-width);
+}
+
+.work-container{
+	.make-md-column(10; @gutter: @grid-gutter-width);
+	padding-top: 44px;
+	border-right: @border-style;
+	border-left: @border-style
+}
+
+.work-item{
+	.make-md-column(12; @gutter: @grid-gutter-width);
+	.make-md-column-offset(1);
+	margin: 20px;
+}	
+
+.work-info{
+	font-size: @font-size-small;
+	margin: 4px;
+}
+
+.work-media{
+
+}
