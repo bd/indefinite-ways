@@ -12,11 +12,20 @@
 	<div class="description-container">
 		<div class="show-or-edit">
 			
-			<div class="show-content {{#if allowEdits}} hidden {{/if}}">
-				<h2>Project Title</h2>
+			<div class="show-content {{#if editTitle}} hidden {{/if}}">
+				<div class="col-md-12">
+					<h2>Project Title</h2>
+				</div>
+				<div class="edit-icon">
+					<button id="editTitleButton" type="button" class="btn btn-link">
+						<span class="glyphicon glyphicon-edit {{#unless allowEdits}} hidden {{/unless}}">
+						</span>
+					</button>
+				</div>
 			</div>
-			<div class="edit-content {{#unless allowEdits}} hidden {{/unless}}">
+			<div class="edit-content {{#unless editTitle}} hidden {{/unless}}">
 				<input type="text" value="Project Title">
+
 			</div>
 		<br>
 		</div>
@@ -28,7 +37,7 @@
 				<p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
 			
 			</p></div>
-{{loginButtons}}
+
 </div>
 </template>
 
@@ -86,11 +95,5 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aliquid quibusdam illo placeat voluptates magni iusto! Repudiandae atque similique commodi.
 			</div>
 			</div>
-	</div>
-</template>
-
-<template name="ProjectRight">
-	<div class="col-md-1">
-	
 	</div>
 </template>

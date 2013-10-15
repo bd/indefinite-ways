@@ -7,23 +7,27 @@ Deps.autorun () ->
 
 isAuthorized = () -> Session.get "isAuthorized"
 
+toggleSessionVar = (name) -> Session.set name , not Session.get name
+
 Template.Project.events
 	'click': () ->
 		# ...
 
-Template.Project.helpers
-	allowEdits: isAuthorized
+
 		
 
 
 ## DESCRIPTION
 #
 Template.Description.events
-	'click': () ->
-		# ...
+	'click #editTitleButton': () ->
+		toggleSessionVar 'editTitle'
 
 Template.Description.helpers
 	allowEdits: isAuthorized
+
+	editTitle: () ->
+		Session.get "editTitle"
 
 
 ## WORK
@@ -34,3 +38,4 @@ Template.Work.events
 
 Template.Work.helpers
 	isAuthorized: isAuthorized
+	

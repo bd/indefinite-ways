@@ -13,8 +13,8 @@
       },
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.1",
-        "commit": "82d3e32b6a44bad7bd439b9e02ce33161e58996d"
+        "tag": "v0.1.3",
+        "commit": "14f38afc74557dce2b577afdfdaaed4e3e147611"
       }
     }
   }

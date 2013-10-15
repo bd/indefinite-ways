@@ -11,3 +11,13 @@
 
 @grid-columns: 14;
 
+@navbar-height: 40;
+@navbar-margin-bottom: 0;
+
+@brand-primary:         #003D7A;
+@brand-success:         #007A3D;
+@brand-warning:         #F57A00;
+@brand-danger:          #7A0000;
+@brand-info:            #007AF5;
+
+
