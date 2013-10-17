@@ -4,7 +4,7 @@
        #          url : <String> //unique!
        #          title : <String>
        #          description : <String>
-       #          status : 'published' || 'unpublished'
+       #          published : <boolean>
        #          tags : [<String>]
        #          resources : [<Resource>]
 

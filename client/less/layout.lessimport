@@ -2,7 +2,7 @@
 
 .description-container{
 	.make-md-column(4; @gutter: @grid-gutter-width);
-	padding-left: 0px;
+	padding-left: -10px;
 }
 
 .work-container{
@@ -50,4 +50,9 @@
 	padding-top: 10px;
 	padding-right: 10px;
 
+}
+
+.tags{
+	color: @gray-light;
+	//hover : @gray;
 }

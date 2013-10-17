@@ -7,8 +7,6 @@ Deps.autorun () ->
 
 isAuthorized = () -> Session.get "isAuthorized"
 
-toggleSessionVar = (name) -> Session.set name , not Session.get name
-
 Template.Project.events
 	'click': () ->
 		# ...
@@ -26,8 +24,12 @@ Template.Description.events
 Template.Description.helpers
 	allowEdits: isAuthorized
 
-	editTitle: () ->
-		Session.get "editTitle"
+	theProject : () -> if Session.get 'theProject' then Session.get 'theProject' else Projects.findOne()
+	
+
+		# title : () -> 
+
+	editTitle: () -> Session.get "editTitle"
 
 
 ## WORK
