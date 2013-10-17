@@ -9,7 +9,7 @@
 	<div class="description-container">
 		<div class="show-or-edit">
 			<div class="show-content {{#if editTitle}} hidden {{/if}}">
-				<div class="col-md-12">
+				<div class="col-md-13">
 					<h3>{{theProject.title}}</h3>
 				</div>
 				<div class="edit-icon">
@@ -37,7 +37,7 @@
 		</div>
 		<div class="show-or-edit">
 			<div class="show-content {{#if editDescription}} hidden {{/if}}">
-				<div class="col-md-12">
+				<div class="col-md-13">
 					<p>
 						{{theProject.description}}		
 					</p>
@@ -51,7 +51,7 @@
 			</div>	
 				<div class="edit-content {{#unless editDescription}} hidden {{/unless}}">
 					<div class="col-md-14">
-						<textarea type="textarea" cols="40" rows="40" class="form-control" id="descriptionTextInput" >
+						<textarea type="textarea" cols="40" rows="25" class="form-control" id="descriptionTextInput" >
 							{{theProject.description}}
 						</textarea>
 						<span class="input-group-btn btn-group">

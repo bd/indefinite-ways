@@ -11,7 +11,7 @@
 
 .work-container{
 	.make-md-column(10; @gutter: @grid-gutter-width);
-	margin-top: -10px;
+	margin-top: 0px;
 	padding-top: 44px;
 	border-right: @border-style;
 	border-left: @border-style
@@ -50,9 +50,10 @@
 
 .edit-icon{
 	
-	.make-md-column(1; @gutter: @grid-gutter-width);
+	.make-md-column(1; @gutter: 0px);
 	padding-top: 10px;
 	padding-right: 10px;
+	padding-left: -10px;
 }
 
 .tags{
