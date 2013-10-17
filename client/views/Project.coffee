@@ -18,18 +18,41 @@ Template.Project.events
 ## DESCRIPTION
 #
 Template.Description.events
-	'click #editTitleButton': () ->
+	'click #editTitleButton': (e, t) ->
 		toggleSessionVar 'editTitle'
+
+	'click #cancelEditTitleButton' : (e, t) ->
+		toggleSessionVar 'editTitle'
+
+	'click #acceptEditTitleButton' : (e, t) ->
+		titleText = document.getElementById('titleTextInput').value
+		project = Session.get 'theProject'
+		project.title = titleText
+		Projects.update project._id , project
+		toggleSessionVar 'editTitle'
+
+	'click #editDescriptionButton' : (e, t) ->
+		toggleSessionVar 'editDescription'
+
+	'click #cancelEditDescriptionButton' : (e, t) ->
+		toggleSessionVar 'editDescription'
+
+	'click #acceptEditDescriptionButton' : (e, t) ->
+		descText = document.getElementById('descriptionTextInput').value
+		project = Session.get 'theProject'
+		project.description = descText
+		Projects.update project._id , project
+		toggleSessionVar 'editDescription'
 
 Template.Description.helpers
 	allowEdits: isAuthorized
 
-	theProject : () -> if Session.get 'theProject' then Session.get 'theProject' else Projects.findOne()
-	
 
-		# title : () -> 
+	theProject : () -> if Session.get 'theProjectId' then Projects.findOne({'_id':Session.get 'theProjectId'}) else Projects.findOne()
 
-	editTitle: () -> Session.get "editTitle"
+	editTitle: () -> Session.get 'editTitle'
+
+	editDescription: () -> Session.get 'editDescription'
 
 
 ## WORK

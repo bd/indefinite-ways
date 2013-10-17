@@ -1,5 +1,9 @@
 @border-style: 1.5px solid @navbar-default-border;
 
+.project-container{
+	.make-row();
+}
+
 .description-container{
 	.make-md-column(4; @gutter: @grid-gutter-width);
 	padding-left: -10px;
@@ -41,7 +45,7 @@
 }
 
 .edit-content{
-
+	.make-row();
 }
 
 .edit-icon{
@@ -49,7 +53,6 @@
 	.make-md-column(1; @gutter: @grid-gutter-width);
 	padding-top: 10px;
 	padding-right: 10px;
-
 }
 
 .tags{

@@ -12,14 +12,11 @@
 
 handler = (keylist, resetKeylist) ->
 	(event) -> 
-		console.log event.keyCode
-		console.log keylist.length
 		if keylist.length <= 1
 			Session.set 'showLogin', not Session.get 'showLogin'
 		else if _.first(keylist) == event.keyCode
 			overwriteLoginHandler handler _.rest(keylist), resetKeylist
 			Meteor.setTimeout () -> 
-				console.log 'reset!'
 				overwriteLoginHandler keyHandler resetKeylist 
 			, 5000
 		else 
