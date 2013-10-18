@@ -77,6 +77,9 @@
 
 <template name="Work">
 	<div class="work-container">
+		<div class="tags pull-right">
+			<button class="btn btn-link" id="workDetailsButton">{{#if showDetails}} hide details {{else}} show details{{/if}}</button>
+		</div>
 		{{#each works}}
 			<div class="work-item">
 				<div class="work-media">		
@@ -84,7 +87,7 @@
 							class="img-responsive" 
 							alt="Image">
 				</div>
-				<div class="work-info">
+				<div class="work-info {{#unless showDetails}}hidden{{/unless}}">
 					<em>{{this.title}}</em>
 					<br>
 					{{this.date}}
@@ -92,7 +95,7 @@
 					{{this.media}}
 					<br>
 					{{this.dimensions}}
-				</div>	
+				</div>
 			</div>
 		{{/each}}
 	</div>

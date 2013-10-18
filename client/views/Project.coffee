@@ -55,13 +55,14 @@ Template.Description.helpers
 ## WORK
 #
 Template.Work.events
-	'click': () ->
-		# ...
+	'click #workDetailsButton': () ->
+		toggleSessionVar 'showWorkDetails'
 
 Template.Work.helpers
 	works : () ->
 		projectId = Session.get 'theProjectId'
 		Work.find project : projectId
 
+	showDetails : () -> Session.get 'showWorkDetails'
 	allowEdits: isAuthorized
 	
