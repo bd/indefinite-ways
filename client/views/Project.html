@@ -20,17 +20,19 @@
 				</div>
 			</div>
 			<div class="edit-content {{#unless editTitle}} hidden {{/unless}}">
-				<div class="input-group input-group-lg">
-					<input id="titleTextInput" type="text" class="form-control" value="{{theProject.title}}"
-						placeholder="Project Title">
-					<span class="input-group-btn btn-group">
-						<button class="btn btn-link" id="acceptEditTitleButton">
-							<span class="glyphicon glyphicon-ok"></span>
-						</button>
-						<button class="btn btn-link" id="cancelEditTitleButton">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</span>
+				<div class="col-md-14">
+					<div class="input-group input-group-lg">
+						<input id="titleTextInput" type="text" class="form-control" value="{{theProject.title}}"
+							placeholder="Project Title">
+						<span class="input-group-btn btn-group">
+							<button class="btn btn-link" id="acceptEditTitleButton">
+								<span class="glyphicon glyphicon-ok"></span>
+							</button>
+							<button class="btn btn-link" id="cancelEditTitleButton">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</span>
+					</div>
 				</div>
 			</div>
 		<br>
@@ -112,7 +114,7 @@
 			</div>
 			</div>
 		<div class="work-item">
-			<div class="work-media">
+			<div class="work-media" id="">
 					<img src="https://www.filepicker.io/api/file/FAL2IcBTXSLLw9hZKzP3" alt="3" class="img-responsive">
 			</div>
 			<div class="work-info">
