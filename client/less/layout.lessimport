@@ -24,7 +24,8 @@
 }	
 
 .work-info{
-	.make-md-column(8; @gutter: (@grid-gutter-width / 2));
+	.make-md-column(10; @gutter: (@grid-gutter-width / 2));
+	line-height: (@line-height-base * 1.1);
 	font-size: @font-size-small;
 	margin: 4px;
 	margin-left: -8px;

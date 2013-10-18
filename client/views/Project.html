@@ -69,7 +69,7 @@
 			</div>
 		
 		<br>
-		<div class="show-or-edit tags">
+		<div class="show-or-edit tags hidden">
 			<p>{{theProject.tags}}</p>
 		</div>
 </div>
@@ -77,57 +77,23 @@
 
 <template name="Work">
 	<div class="work-container">
-		<div class="work-item">
-			<div class="work-media">		
-					<img src="https://www.filepicker.io/api/file/r1gC5WvzSpvaQkcqAsDE" 
+		{{#each works}}
+			<div class="work-item">
+				<div class="work-media">		
+					<img src="{{this.link}}" 
 							class="img-responsive" 
 							alt="Image">
+				</div>
+				<div class="work-info">
+					<em>{{this.title}}</em>
+					<br>
+					{{this.date}}
+					<br>
+					{{this.media}}
+					<br>
+					{{this.dimensions}}
+				</div>	
 			</div>
-			<div class="work-info">
-				<em>Title</em>
-				<br>
-				2012
-				<br>
-				various varied materials
-				<br>
-				10x12x14 in
-				<br>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, unde, architecto hic suscipit officiis quisquam fugiat dolorem ab aperiam voluptatem temporibus incidunt!
-			</div>	
-			</div>
-		<div class="work-item">
-			<div class="work-media">
-					<img src="https://www.filepicker.io/api/file/oyRoiaoBQoiLOuJofFgR"
-							class="img-responsive" 
-							alt="Image2">
-			</div>
-			<div class="work-info">
-				<em>Lorem ipsum.</em>
-				<br>
-				2013
-				<br>
-				blood, sweat, tears
-				<br>
-				12x15 in
-				<br>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, id!
-			</div>
-			</div>
-		<div class="work-item">
-			<div class="work-media" id="">
-					<img src="https://www.filepicker.io/api/file/FAL2IcBTXSLLw9hZKzP3" alt="3" class="img-responsive">
-			</div>
-			<div class="work-info">
-				<em>Lorem ipsum.</em>
-				<br>
-				2013
-				<br>
-				buffalo buffalo buffalo buffalo buffalo
-				<br>
-				9x9 in
-				<br>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aliquid quibusdam illo placeat voluptates magni iusto! Repudiandae atque similique commodi.
-			</div>
-			</div>
+		{{/each}}
 	</div>
 </template>

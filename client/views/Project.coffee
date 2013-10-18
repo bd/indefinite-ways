@@ -59,5 +59,9 @@ Template.Work.events
 		# ...
 
 Template.Work.helpers
-	isAuthorized: isAuthorized
+	works : () ->
+		projectId = Session.get 'theProjectId'
+		Work.find project : projectId
+
+	allowEdits: isAuthorized
 	
