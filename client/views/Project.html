@@ -81,13 +81,21 @@
 			<button class="btn btn-link" id="workDetailsButton">{{#if showDetails}} hide details {{else}} show details{{/if}}</button>
 		</div>
 		{{#each works}}
-			<div class="work-item">
-				<div class="work-media">		
-					<img src="{{this.link}}" 
-							class="img-responsive" 
-							alt="Image">
-				</div>
-				<div class="work-info {{#unless showDetails}}hidden{{/unless}}">
+			{{> WorkItem}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="WorkItem">
+	<div class="work-item">
+		<div class="work-media">		
+			<img src="{{this.link}}" 
+					class="img-responsive" 
+					alt="Image">
+		</div>
+		<div class="show-or-edit {{#unless showDetails}}hidden{{/unless}}">
+			<div class="show-content {{#if editWorkInfo}} hidden {{/if}}">
+				<div class="work-info ">
 					<em>{{this.title}}</em>
 					<br>
 					{{this.date}}
@@ -96,7 +104,32 @@
 					<br>
 					{{this.dimensions}}
 				</div>
+				<div class="edit-icon pull-right {{#unless allowEdits}} hidden {{/unless}} " id="editInfoButton">
+					<button class="btn btn-link">
+						<span class="glyphicon glyphicon-edit"></span>
+					</button>
+				</div>
 			</div>
-		{{/each}}
+			<div class="edit-content {{#unless editWorkInfo}} hidden {{/unless}}">
+				<div class="col-md-12">
+					<form role="form">
+						<input type="text" class="form-control" id="workTitleText" value="{{this.title}}" placeholder="Title">	
+						<input type="text" class="form-control" id="workDateText" value="{{this.date}}" placeholder="Date">
+						<input type="text" class="form-control" id="workMediaText" value="{{this.media}}" placeholder="Media">
+						<input type="text" class="form-control" id="workDimensionsText" value="{{this.dimensions}}" placeholder="Dimensions">
+					</form>
+				</div>
+				<div class="col-md-2">
+					<form role="form">
+						<button class="btn btn-link" id="acceptInfoEdit">
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>
+						<button class="btn btn-link" id="cancelInfoEdit">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</form>
+				</div>	
+			</div>
+		</div>
 	</div>
 </template>

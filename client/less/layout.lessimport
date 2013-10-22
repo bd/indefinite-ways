@@ -28,7 +28,6 @@
 	line-height: (@line-height-base * 1.1);
 	font-size: @font-size-small;
 	margin: 4px;
-	margin-left: -8px;
 }
 
 .work-media{
@@ -42,7 +41,7 @@
 
 .show-content{
 	.make-row(@gutter: @grid-gutter-width / 4);
-	margin-left: -15px;
+	margin-left: -8px;
 }
 
 .edit-content{

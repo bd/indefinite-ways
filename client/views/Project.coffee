@@ -4,8 +4,7 @@ Deps.autorun () ->
 	#the user is submitted already in every method call
 	Meteor.call('isAuthorized', Meteor.user(), (error, result) -> Session.set 'isAuthorized', result)
 
-
-isAuthorized = () -> Session.get "isAuthorized"
+Handlebars.registerHelper 'allowEdits', () -> Session.get "isAuthorized"
 
 Template.Project.events
 	'click': () ->
@@ -43,7 +42,6 @@ Template.Description.events
 		toggleSessionVar 'editDescription'
 
 Template.Description.helpers
-	allowEdits: isAuthorized
 
 	theProject : () -> if Session.get 'theProjectId' then Projects.findOne({'_id':Session.get 'theProjectId'}) else Projects.findOne()
 
@@ -63,6 +61,32 @@ Template.Work.helpers
 		projectId = Session.get 'theProjectId'
 		Work.find project : projectId
 
-	showDetails : () -> Session.get 'showWorkDetails'
-	allowEdits: isAuthorized
+	showDetails : () -> Session.get 'showWorkDetails'	
+
+
 	
+
+## WORKITEM
+#
+Template.WorkItem.events
+	'click #editInfoButton': (e, t) ->
+		Session.set 'editInfoFor' , t.data._id
+
+	'click #acceptInfoEdit' : (e, t) ->
+		updates = 
+			title : document.getElementById('workTitleText').value
+			date : document.getElementById('workDateText').value
+			media : document.getElementById('workMediaText').value
+			dimensions : document.getElementById('workDimensionsText').value
+
+		Work.update t.data._id, {$set:updates}
+
+	'click #cancelInfoEdit' : (e, t) ->
+		Session.set 'editInfoFor', 'NONE SELECTED'
+		
+
+Template.WorkItem.helpers
+	showDetails : () -> Session.get 'showWorkDetails'	
+
+	editWorkInfo : () ->  
+		Session.equals 'editInfoFor', this._id 
