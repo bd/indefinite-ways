@@ -88,10 +88,17 @@
 
 <template name="WorkItem">
 	<div class="work-item">
-		<div class="work-media">		
-			<img src="{{this.link}}" 
-					class="img-responsive" 
-					alt="Image">
+		<div class="row">
+			<div class="work-media">		
+				<img src="{{this.link}}" 
+						class="img-responsive" 
+						alt="Image">
+			</div>
+			<div class="col-md-1 {{#unless allowEdits}} hidden {{/unless}}">
+				<button class="btn btn-link remove-work">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</div>
 		</div>
 		<div class="show-or-edit {{#unless showDetails}}hidden{{/unless}}">
 			<div class="show-content {{#if editWorkInfo}} hidden {{/if}}">
@@ -113,10 +120,10 @@
 			<div class="edit-content {{#unless editWorkInfo}} hidden {{/unless}}">
 				<div class="col-md-12">
 					<form role="form">
-						<input type="text" class="form-control" id="workTitleText-{{this._id}}" value="{{this.title}}" placeholder="Title">	
-						<input type="text" class="form-control" id="workDateText-{{this._id}}" value="{{this.date}}" placeholder="Date">
-						<input type="text" class="form-control" id="workMediaText-{{this._id}}" value="{{this.media}}" placeholder="Media">
-						<input type="text" class="form-control" id="workDimensionsText-{{this._id}}" value="{{this.dimensions}}" placeholder="Dimensions">
+						<input type="text" class="form-control" id="workTitleText" value="{{this.title}}" placeholder="Title">	
+						<input type="text" class="form-control" id="workDateText" value="{{this.date}}" placeholder="Date">
+						<input type="text" class="form-control" id="workMediaText" value="{{this.media}}" placeholder="Media">
+						<input type="text" class="form-control" id="workDimensionsText" value="{{this.dimensions}}" placeholder="Dimensions">
 					</form>
 				</div>
 				<div class="col-md-2">

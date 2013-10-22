@@ -31,7 +31,7 @@
 }
 
 .work-media{
-
+	.make-md-column(13 ;@gutter: (@grid-gutter-width / 2));
 }
 
 .show-or-edit{

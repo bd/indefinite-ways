@@ -69,18 +69,22 @@ Template.Work.helpers
 ## WORKITEM
 #
 Template.WorkItem.events
+	'click .remove-work': (e, t) ->
+		# console.log 'removing: ' + t.data._id
+		Work.remove( _id : t.data._id)
+
 	'click #editInfoButton': (e, t) ->
 		Session.set 'editInfoFor' , t.data._id
 
 	'click #acceptInfoEdit' : (e, t) ->
 		e.preventDefault()
 		id = t.data._id
+		# console.log  t.find 'input#workTitleText'
 		updates = 
-			title : document.getElementById('workTitleText-' + id).value
-			date : document.getElementById('workDateText-' + id).value
-			media : document.getElementById('workMediaText-' + id).value
-			dimensions : document.getElementById('workDimensionsText-' + id).value
-		console.log updates
+			title : t.find('input#workTitleText').value
+			date : t.find('input#workDateText').value
+			media : t.find('input#workMediaText').value
+			dimensions : t.find('input#workDimensionsText').value
 		Work.update id, {$set:updates}
 		editInfoOff()
 
