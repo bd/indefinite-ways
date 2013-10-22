@@ -56,12 +56,26 @@ Template.Work.events
 	'click #workDetailsButton': () ->
 		toggleSessionVar 'showWorkDetails'
 
+	'click #uploadWorkButton' : () ->
+		filepicker.pick (InkBlob)->
+			work = 
+				project : Session.get 'theProjectId'
+				link : InkBlob.url
+				title : InkBlob.filename			
+			console.log work
+			Work.insert work
+
 Template.Work.helpers
 	works : () ->
 		projectId = Session.get 'theProjectId'
 		Work.find project : projectId
 
 	showDetails : () -> Session.get 'showWorkDetails'	
+
+Template.Work.created = () ->
+	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
+
+
 
 
 	
@@ -79,7 +93,6 @@ Template.WorkItem.events
 	'click #acceptInfoEdit' : (e, t) ->
 		e.preventDefault()
 		id = t.data._id
-		# console.log  t.find 'input#workTitleText'
 		updates = 
 			title : t.find('input#workTitleText').value
 			date : t.find('input#workDateText').value

@@ -80,6 +80,12 @@
 		<div class="pull-right">
 			<button class="btn btn-link tags" id="workDetailsButton">{{#if showDetails}} hide details {{else}} show details{{/if}}</button>
 		</div>
+		<div class="pull-right {{#unless allowEdits}} hidden {{/unless}}">
+			<button class="btn btn-link" id="uploadWorkButton">
+				<span class="glyphicon glyphicon-plus"></span>
+				add work
+			</button>
+		</div>
 		{{#each works}}
 			{{> WorkItem}}
 		{{/each}}
