@@ -77,8 +77,8 @@
 
 <template name="Work">
 	<div class="work-container">
-		<div class="tags pull-right">
-			<button class="btn btn-link" id="workDetailsButton">{{#if showDetails}} hide details {{else}} show details{{/if}}</button>
+		<div class="pull-right">
+			<button class="btn btn-link tags" id="workDetailsButton">{{#if showDetails}} hide details {{else}} show details{{/if}}</button>
 		</div>
 		{{#each works}}
 			{{> WorkItem}}
@@ -113,10 +113,10 @@
 			<div class="edit-content {{#unless editWorkInfo}} hidden {{/unless}}">
 				<div class="col-md-12">
 					<form role="form">
-						<input type="text" class="form-control" id="workTitleText" value="{{this.title}}" placeholder="Title">	
-						<input type="text" class="form-control" id="workDateText" value="{{this.date}}" placeholder="Date">
-						<input type="text" class="form-control" id="workMediaText" value="{{this.media}}" placeholder="Media">
-						<input type="text" class="form-control" id="workDimensionsText" value="{{this.dimensions}}" placeholder="Dimensions">
+						<input type="text" class="form-control" id="workTitleText-{{this._id}}" value="{{this.title}}" placeholder="Title">	
+						<input type="text" class="form-control" id="workDateText-{{this._id}}" value="{{this.date}}" placeholder="Date">
+						<input type="text" class="form-control" id="workMediaText-{{this._id}}" value="{{this.media}}" placeholder="Media">
+						<input type="text" class="form-control" id="workDimensionsText-{{this._id}}" value="{{this.dimensions}}" placeholder="Dimensions">
 					</form>
 				</div>
 				<div class="col-md-2">

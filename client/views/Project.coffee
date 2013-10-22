@@ -73,17 +73,23 @@ Template.WorkItem.events
 		Session.set 'editInfoFor' , t.data._id
 
 	'click #acceptInfoEdit' : (e, t) ->
+		e.preventDefault()
+		id = t.data._id
 		updates = 
-			title : document.getElementById('workTitleText').value
-			date : document.getElementById('workDateText').value
-			media : document.getElementById('workMediaText').value
-			dimensions : document.getElementById('workDimensionsText').value
+			title : document.getElementById('workTitleText-' + id).value
+			date : document.getElementById('workDateText-' + id).value
+			media : document.getElementById('workMediaText-' + id).value
+			dimensions : document.getElementById('workDimensionsText-' + id).value
+		console.log updates
+		Work.update id, {$set:updates}
+		editInfoOff()
 
-		Work.update t.data._id, {$set:updates}
 
 	'click #cancelInfoEdit' : (e, t) ->
-		Session.set 'editInfoFor', 'NONE SELECTED'
-		
+		e.preventDefault()
+		editInfoOff()
+
+editInfoOff = () -> Session.set 'editInfoFor', 'NONE SELECTED'		
 
 Template.WorkItem.helpers
 	showDetails : () -> Session.get 'showWorkDetails'	
