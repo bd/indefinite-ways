@@ -6,6 +6,8 @@ Deps.autorun () ->
 
 Handlebars.registerHelper 'allowEdits', () -> Session.get "isAuthorized"
 
+Handlebars.registerHelper 'alerts', () -> Session.get 'alerts'
+
 Template.Project.events
 	'click': () ->
 		# ...
@@ -84,9 +86,18 @@ Template.Work.created = () ->
 #
 Template.WorkItem.events
 	'click .remove-work': (e, t) ->
-		# console.log 'removing: ' + t.data._id
-		Work.remove( _id : t.data._id)
-
+		
+		#First, delete from FP, 
+		blob= url : t.data.link
+		filepicker.remove blob,
+		#security options (currently not enabled FP security)
+		 {},
+		 #callback to remove from DB
+		 () ->
+		 	Work.remove {_id: t.data._id},
+		 #callback on error
+		 (FPError) -> 
+		 	Session.set 'alerts', FPError		
 	'click #editInfoButton': (e, t) ->
 		Session.set 'editInfoFor' , t.data._id
 

@@ -17,6 +17,12 @@
   		  
   		
   		</div><!-- end collapse -->
+      <div class="alert alert-danger alert-dismissable {{#unless alerts}} hidden {{/unless}}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+        </button>
+        <strong>Warning!</strong> {{alerts}}
+</div>
+
   		{{#if showLogin}}<div class="pull-left">{{loginButtons}}</div>{{/if}}
 	</nav>
 </template>

@@ -1,6 +1,6 @@
 Template.Header.events
-	'click': () ->
-		# ...
+	'click .alert': () ->
+		Session.set 'alerts', null
 
 Template.Header.helpers
 	ways: () ->
