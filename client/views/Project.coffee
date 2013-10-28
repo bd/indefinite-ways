@@ -59,18 +59,22 @@ Template.Work.events
 		toggleSessionVar 'showWorkDetails'
 
 	'click #uploadWorkButton' : () ->
+		id = Session.get 'theProjectId'
+		largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
 		filepicker.pick (InkBlob)->
 			work = 
-				project : Session.get 'theProjectId'
+				project : id
 				link : InkBlob.url
-				title : InkBlob.filename			
+				title : InkBlob.filename
+				sortOrder : largest + 1			
 			console.log work
 			Work.insert work
 
 Template.Work.helpers
 	works : () ->
 		projectId = Session.get 'theProjectId'
-		Work.find project : projectId
+		Work.find project : projectId , {sort: [['sortOrder', 'asc']]}
+
 
 	showDetails : () -> Session.get 'showWorkDetails'	
 
@@ -85,19 +89,7 @@ Template.Work.created = () ->
 ## WORKITEM
 #
 Template.WorkItem.events
-	'click .remove-work': (e, t) ->
-		
-		#First, delete from FP, 
-		blob= url : t.data.link
-		filepicker.remove blob,
-		#security options (currently not enabled FP security)
-		 {},
-		 #callback to remove from DB
-		 () ->
-		 	Work.remove {_id: t.data._id},
-		 #callback on error
-		 (FPError) -> 
-		 	Session.set 'alerts', FPError		
+
 	'click #editInfoButton': (e, t) ->
 		Session.set 'editInfoFor' , t.data._id
 
@@ -112,10 +104,35 @@ Template.WorkItem.events
 		Work.update id, {$set:updates}
 		editInfoOff()
 
-
 	'click #cancelInfoEdit' : (e, t) ->
 		e.preventDefault()
 		editInfoOff()
+
+	'click .remove-work': (e, t) ->
+		
+		#First, delete from FP, 
+		blob = url : t.data.link
+		filepicker.remove blob,
+		#security options (currently not enabled FP security)
+		 {},
+		 #callback to remove from DB
+		 () ->
+		 	Work.remove {_id: t.data._id},
+		 #callback on error
+		 (FPError) -> 
+		 	Session.set 'alerts', FPError
+
+	'click .sort-up': (e, t) ->
+		id = t.data._id
+		console.log 'clicked sort-up for ' + id
+		Work.update id, '$inc' : 'sortOrder' : -2 
+
+	'click .sort-down' : (e, t) ->
+		id = t.data._id
+		console.log 'clicked sort-down for ' + id
+		Work.update id, '$inc' : 'sortOrder' : 2 
+
+
 
 editInfoOff = () -> Session.set 'editInfoFor', 'NONE SELECTED'		
 
