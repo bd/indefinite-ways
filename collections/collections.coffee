@@ -5,7 +5,7 @@
        #          description : <String>
        #          published : <boolean>
        #          tags : [<String>]
-       #          resources : [<Resource>]
+       #          sortOrder : <number>?
 
 @Work = new Meteor.Collection "work"
        # <Work> ::=
@@ -15,5 +15,6 @@
        #          date : <String | Date>?
        #          media : <String>?
        #          dimensions : <String>?
+       #          sortOrder : <number>?
 
 
