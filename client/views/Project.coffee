@@ -125,12 +125,12 @@ Template.WorkItem.events
 	'click .sort-up': (e, t) ->
 		id = t.data._id
 		console.log 'clicked sort-up for ' + id
-		Work.update id, '$inc' : 'sortOrder' : -2 
+		Work.update id, '$inc' : 'sortOrder' : -1 
 
 	'click .sort-down' : (e, t) ->
 		id = t.data._id
 		console.log 'clicked sort-down for ' + id
-		Work.update id, '$inc' : 'sortOrder' : 2 
+		Work.update id, '$inc' : 'sortOrder' : 1 
 
 
 
