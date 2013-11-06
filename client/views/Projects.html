@@ -1,5 +1,10 @@
 <template name="Projects">
 	<div class="container">
+		<div class="project-container {{#unless allowEdits}} hidden {{/unless}}">
+			<button class="btn btn-link" type="button" id="newProjectButton">
+				Add Project		
+			</button>
+		</div>
 		{{#each projects}}
 			{{> Project}}
 		{{/each}}

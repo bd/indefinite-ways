@@ -72,7 +72,7 @@ Template.Work.events
 
 Template.Work.helpers
 	works : () ->
-		projectId = Session.get 'theProjectId'
+		projectId = this._id
 		Work.find project : projectId , {sort: [['sortOrder', 'asc']]}
 
 
