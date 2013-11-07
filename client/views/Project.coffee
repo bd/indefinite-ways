@@ -26,8 +26,8 @@ Template.Description.events
 		toggleSessionVar 'editTitle'
 
 	'click #acceptEditTitleButton' : (e, t) ->
-		titleText = document.getElementById('titleTextInput').value
-		projectId = Session.get 'theProjectId'
+		titleText = t.find('input#titleTextInput').value
+		projectId = this._id 
 		Projects.update projectId , {$set: {title: titleText}}
 		toggleSessionVar 'editTitle'
 
@@ -38,14 +38,12 @@ Template.Description.events
 		toggleSessionVar 'editDescription'
 
 	'click #acceptEditDescriptionButton' : (e, t) ->
-		descText = document.getElementById('descriptionTextInput').value
-		projectId = Session.get 'theProjectId'
+		descText = t.find('textarea#descriptionTextInput').value
+		projectId = this._id
 		Projects.update projectId , {$set: {description: descText}}
 		toggleSessionVar 'editDescription'
 
 Template.Description.helpers
-
-	theProject : () -> if Session.get 'theProjectId' then Projects.findOne({'_id':Session.get 'theProjectId'}) else Projects.findOne()
 
 	editTitle: () -> Session.get 'editTitle'
 
@@ -59,15 +57,15 @@ Template.Work.events
 		toggleSessionVar 'showWorkDetails'
 
 	'click #uploadWorkButton' : () ->
-		id = Session.get 'theProjectId'
+		id = this._id
 		largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
 		filepicker.pick (InkBlob)->
 			work = 
 				project : id
 				link : InkBlob.url
 				title : InkBlob.filename
-				sortOrder : largest + 1			
-			console.log work
+				sortOrder : 0			
+			# console.log work
 			Work.insert work
 
 Template.Work.helpers
@@ -77,11 +75,6 @@ Template.Work.helpers
 
 
 	showDetails : () -> Session.get 'showWorkDetails'	
-
-Template.Work.created = () ->
-	# Meteor.call 'filePickerKey', (e, r) -> loadPicker r
-
-
 
 
 	
