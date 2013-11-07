@@ -79,7 +79,7 @@ Template.Work.helpers
 	showDetails : () -> Session.get 'showWorkDetails'	
 
 Template.Work.created = () ->
-	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
+	# Meteor.call 'filePickerKey', (e, r) -> loadPicker r
 
 
 

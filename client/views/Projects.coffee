@@ -1,5 +1,8 @@
 # Projects.coffee
 
+Template.Projects.created = () ->
+	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
+
 Template.Projects.helpers
 	projects: () ->
 		Projects.find()
