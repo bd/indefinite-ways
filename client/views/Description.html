@@ -1,0 +1,69 @@
+<template name="Description">
+	<div class="description-container">
+		<div class="show-or-edit">
+			<div class="show-content {{#if editTitle}} hidden {{/if}}">
+				<div class="col-md-13">
+					<h3>{{this.title}}</h3>
+				</div>
+				<div class="edit-icon">
+					<button id="editTitleButton" type="button" class="btn btn-link">
+						<span class="glyphicon glyphicon-edit {{#unless allowEdits}} hidden {{/unless}}">
+						</span>
+					</button>
+				</div>
+			</div>
+			<div class="edit-content {{#unless editTitle}} hidden {{/unless}}">
+				<div class="col-md-14">
+					<div class="input-group input-group-lg">
+						<input id="titleTextInput" type="text" class="form-control" value="{{this.title}}"
+							placeholder="Project Title">
+						<span class="input-group-btn btn-group">
+							<button class="btn btn-link" id="acceptEditTitleButton">
+								<span class="glyphicon glyphicon-ok"></span>
+							</button>
+							<button class="btn btn-link" id="cancelEditTitleButton">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		<br>
+		</div>
+		<div class="show-or-edit">
+			<div class="show-content {{#if editDescription}} hidden {{/if}}">
+				<div class="col-md-13">
+					<p>
+						{{this.description}}		
+					</p>
+				</div>
+				<div class="edit-icon">
+					<button id="editDescriptionButton" type="button" class="btn btn-link">
+						<span class="glyphicon glyphicon-edit {{#unless allowEdits}} hidden {{/unless}}">
+						</span>
+					</button>
+				</div>
+			</div>	
+				<div class="edit-content {{#unless editDescription}} hidden {{/unless}}">
+					<div class="col-md-14">
+						<textarea type="textarea" cols="40" rows="25" class="form-control" id="descriptionTextInput" >
+							{{this.description}}
+						</textarea>
+						<span class="input-group-btn btn-group">
+							<button class="btn btn-link" id="acceptEditDescriptionButton">
+								<span class="glyphicon glyphicon-ok"></span>
+							</button>
+							<button class="btn btn-link" id="cancelEditDescriptionButton">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		
+		<br>
+		<div class="show-or-edit tags hidden">
+			<p>{{this.tags}}</p>
+		</div>
+</div>
+</template>
