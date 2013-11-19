@@ -1,5 +1,6 @@
 # Projects.coffee
 
+<<<<<<< HEAD
 Deps.autorun () ->
 	#note that for this implementation, the argument Meteor.user()
 	#is included only to provide a reactive data source for Deps.autorun
@@ -17,6 +18,8 @@ Handlebars.registerHelper 'alerts', () -> Session.get 'alerts'
 Template.Projects.created = () ->
 	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
 
+=======
+>>>>>>> parent of 819f577... fixed my stack bash problem
 Template.Projects.helpers
 	projects: () ->
 		Projects.find()
