@@ -1,6 +1,4 @@
 
-Handlebars.registerHelper 'alerts', () -> Session.get 'alerts'
-
 ## DESCRIPTION
 #
 Template.Description.events
