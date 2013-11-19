@@ -1,16 +1,5 @@
 
-
-<<<<<<< HEAD
-=======
 Handlebars.registerHelper 'alerts', () -> Session.get 'alerts'
-
-Template.Project.events
-	'click': () ->
-		# ...
-
-
-		
-
 
 ## DESCRIPTION
 #
@@ -77,11 +66,6 @@ Template.Work.helpers
 Template.Work.created = () ->
 	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
 
-
-
-
-	
-
 ## WORKITEM
 #
 Template.WorkItem.events
@@ -137,4 +121,3 @@ Template.WorkItem.helpers
 
 	editWorkInfo : () ->  
 		Session.equals 'editInfoFor', this._id 
->>>>>>> parent of 819f577... fixed my stack bash problem
