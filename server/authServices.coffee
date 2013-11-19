@@ -1,6 +1,5 @@
 isAuthorized = () ->
-		# console.log Assets.getText('authorizedUsers') 
-		# console.log this.userId.replace('\w', '')
+		console.log "checking authorization"
 		this.userId == Assets.getText('authorizedUsers')
 
 Meteor.methods(

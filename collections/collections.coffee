@@ -4,7 +4,7 @@
        #          title : <String>
        #          description : <String>
        #          published : <boolean>
-       #          tags : [<String>]
+       #          tags : [<String>]?
        #          sortOrder : <number>?
 
 @Work = new Meteor.Collection "work"
