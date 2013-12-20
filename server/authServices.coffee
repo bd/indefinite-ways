@@ -1,6 +1,7 @@
 isAuthorized = () ->
-		console.log "checking authorization"
-		this.userId == Assets.getText('authorizedUsers')
+		# note that at this point there is ever to be but one authorized user
+		authorized = Assets.getText('authorizedUsers').trim()
+		this.userId.trim() is authorized
 
 Meteor.methods(
 	isAuthorized : isAuthorized
@@ -8,6 +9,4 @@ Meteor.methods(
 		# TODO: properly abstract this, rather than copy/paste...		
 		if this.userId == Assets.getText('authorizedUsers')
 			Assets.getText('fpKey')
-		else
-			Meteor.Error 403, 'Error 403: Forbidden'
 )
