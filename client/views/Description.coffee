@@ -2,32 +2,36 @@
 #
 Template.Description.events
 	'click #editTitleButton': (e, t) ->
-		console.log 'clicked editTitle'
-		toggleSessionVar 'editTitle'
+		Session.set 'editTitle', this._id
 
 	'click #cancelEditTitleButton' : (e, t) ->
-		toggleSessionVar 'editTitle'
+		Session.set 'editTitle', false
 
 	'click #acceptEditTitleButton' : (e, t) ->
 		titleText = t.find('input#titleTextInput').value
 		projectId = this._id 
 		Projects.update projectId , {$set: {title: titleText}}
-		toggleSessionVar 'editTitle'
+		Session.set 'editTitle', false
 
 	'click #editDescriptionButton' : (e, t) ->
-		toggleSessionVar 'editDescription'
+		Session.set 'editDescription', this._id
 
 	'click #cancelEditDescriptionButton' : (e, t) ->
-		toggleSessionVar 'editDescription'
+		Session.set 'editDescription', false
 
 	'click #acceptEditDescriptionButton' : (e, t) ->
 		descText = t.find('textarea#descriptionTextInput').value
 		projectId = this._id
 		Projects.update projectId , {$set: {description: descText}}
-		toggleSessionVar 'editDescription'
+		Session.set 'editDescription', false
 
 Template.Description.helpers
 
-	editTitle: () -> Session.get 'editTitle'
+	editTitle: () -> 
+		edit = Session.get 'editTitle'
+		edit == this._id 
 
-	editDescription: () -> Session.get 'editDescription'
+
+	editDescription: () -> 
+		edit = Session.get 'editDescription'
+		edit == this._id 

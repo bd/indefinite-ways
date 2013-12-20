@@ -1,7 +1,11 @@
 # sessionLib.coffee
 
 @toggleSessionVar = (name) -> 
-	console.log name + ' is currently ' + Session.get name
-	console.log 'toggling session variable: ' + name
 	Session.set name , not Session.get name
-	console.log name + 'is currently ' + Session.get name
+
+@toggleSessionSpecific = (name, value) ->
+	 console.log 'set '+name+' to '+value
+	 if not Session.get name
+		 Session.set name, value
+	 else
+		 Session.set name, false	
