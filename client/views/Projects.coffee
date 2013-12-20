@@ -14,7 +14,9 @@ Handlebars.registerHelper 'allowEdits', () -> Session.get "isAuthorized"
 Handlebars.registerHelper 'alerts', () -> Session.get 'alerts'
 
 Template.Projects.created = () ->
-	Meteor.call 'filePickerKey', (e, r) -> loadPicker r
+	Meteor.call 'filePickerKey', (e, r) -> 
+		console.log 'loading filePickerKey: ' + r
+		loadPicker r
 	
 Template.Projects.helpers
 	projects: () ->
