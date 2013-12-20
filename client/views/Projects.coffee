@@ -2,12 +2,11 @@
 
 Deps.autorun () ->
 	#note that for this implementation, the argument Meteor.user()
-	#is included only to provide a reactive data source for Deps.autorun
-	#the user is submitted already in every method call
+	#is included only to provide a reactive data source for Deps.autorun, 
+	#since the user is submitted already in every method call
 	Meteor.call('isAuthorized', 
 		Meteor.user(), 
 		(error, result) -> 
-			console.log 'checking user authorization'
 			Session.set 'isAuthorized', result)
 
 Handlebars.registerHelper 'allowEdits', () -> Session.get "isAuthorized"

@@ -1,3 +1,5 @@
 # sessionLib.coffee
 
-@toggleSessionVar = (name) -> Session.set name , not Session.get name
+@toggleSessionVar = (name) -> 
+	# console.log 'toggling session variable: ' + name
+	Session.set name , not Session.get name

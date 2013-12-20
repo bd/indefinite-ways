@@ -2,6 +2,7 @@
 #
 Template.Description.events
 	'click #editTitleButton': (e, t) ->
+		console.log 'clicked editTitle'
 		toggleSessionVar 'editTitle'
 
 	'click #cancelEditTitleButton' : (e, t) ->
