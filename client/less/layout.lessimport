@@ -2,6 +2,8 @@
 
 .project-container{
 	.make-row();
+	padding-bottom: 40px;
+	border-bottom: @border-style;
 }
 
 .description-container{
@@ -14,7 +16,7 @@
 	margin-top: 0px;
 	padding-top: 34px;
 	border-right: @border-style;
-	border-left: @border-style
+	border-left: @border-style;
 }
 
 .work-item{

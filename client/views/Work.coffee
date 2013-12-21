@@ -8,11 +8,13 @@ Template.Work.events
 		id = this._id
 		largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
 		filepicker.pick (InkBlob)->
+			console.log InkBlob
 			work = 
 				project : id
 				link : InkBlob.url
 				title : InkBlob.filename
-				sortOrder : 0			
+				sortOrder : 0
+				mimetype : InkBlob.mimetype 			
 			# console.log work
 			Work.insert work
 
