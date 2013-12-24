@@ -6,9 +6,9 @@ Template.Work.events
 
 	'click #uploadWorkButton' : () ->
 		id = this._id
-		largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
+		# largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
 		filepicker.pick (InkBlob)->
-			console.log InkBlob
+			# console.log InkBlob
 			work = 
 				project : id
 				link : InkBlob.url
@@ -17,6 +17,18 @@ Template.Work.events
 				mimetype : InkBlob.mimetype 			
 			# console.log work
 			Work.insert work
+
+	'click #acceptEmbedButton' : (e, t) ->
+		id = this._id
+		# largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
+		url = t.find("input#embedLink").value
+		work = 
+			project : id
+			link : url
+			sortOrder : 0
+			mimetype : "url/embed"
+		Work.insert work
+
 
 Template.Work.helpers
 	works : () ->
@@ -52,18 +64,12 @@ Template.WorkItem.events
 		editInfoOff()
 
 	'click .remove-work': (e, t) ->
+		if t.data.mimetype is "url/embed"
+			removeEmbed e, t
+		else
+			removeImage e, t		
+
 		
-		#First, delete from FP, 
-		blob = url : t.data.link
-		filepicker.remove blob,
-		#security options (currently not enabled FP security)
-		 {},
-		 #callback to remove from DB
-		 () ->
-		 	Work.remove {_id: t.data._id},
-		 #callback on error
-		 (FPError) -> 
-		 	Session.set 'alerts', FPError
 
 	'click .sort-up': (e, t) ->
 		id = t.data._id
@@ -75,6 +81,21 @@ Template.WorkItem.events
 		console.log 'clicked sort-down for ' + id
 		Work.update id, '$inc' : 'sortOrder' : 1 
 
+removeEmbed = (e, t) ->
+	Work.remove {_id: t.data._id}
+
+removeImage = (e, t) ->
+	#First, delete from FP, 
+	blob = url : t.data.link
+	filepicker.remove blob,
+	#security options (currently not enabled FP security)
+	 {},
+	 #callback to remove from DB
+	 () ->
+	 	Work.remove {_id: t.data._id},
+	 #callback on error
+	 (FPError) -> 
+	 	Session.set 'alerts', FPError
 
 
 editInfoOff = () -> Session.set 'editInfoFor', 'NONE SELECTED'		
@@ -84,3 +105,8 @@ Template.WorkItem.helpers
 
 	editWorkInfo : () ->  
 		Session.equals 'editInfoFor', this._id 
+
+	isEmbed : () -> 
+		mimetype = this.mimetype
+		if mimetype
+			mimetype.split('/')[1] is "embed"
