@@ -7,9 +7,5 @@ Meteor.methods(
 	isAuthorized : isAuthorized
 	filePickerKey : () -> 
 		if Meteor.call 'isAuthorized'
-		# TODO: properly abstract this, rather than copy/paste...		
-		# see: http://stackoverflow.com/questions/20710937/why-doesnt-arent-these-meteor-coffeescript-server-methods-equivalent
-		# if isAuthorized()
-		# if this.userId.trim() == Assets.getText('authorizedUsers').trim()
 			Assets.getText('fpKey')
 )

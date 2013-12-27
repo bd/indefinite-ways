@@ -18,3 +18,14 @@
        #          sortOrder : <number>?
 
 
+Projects.allow {
+       insert: (userId, project) -> Meteor.call 'isAuthorized'
+       update: (userId, project) -> Meteor.call 'isAuthorized'
+       remove: (userId, project) -> Meteor.call 'isAuthorized'
+       }
+
+Work.allow {
+       insert: (userId, work) -> Meteor.call 'isAuthorized'
+       update: (userId, work) -> Meteor.call 'isAuthorized'
+       remove: (userId, work) -> Meteor.call 'isAuthorized'
+       }
