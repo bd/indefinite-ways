@@ -1,7 +1,12 @@
 <template name="Project">
+	<button class="btn btn-link remove-project {{#unless allowEdits}}hidden{{/unless}}">
+		<span class="glyphicon glyphicon-remove"></span>
+		delete project
+	</button>
 	<div class="project-container">
 		{{> Description}}
 		{{> Work}}
 	</div>
+
 </template>
 

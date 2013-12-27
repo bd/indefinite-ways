@@ -26,7 +26,7 @@ Template.Projects.events
 		Projects.insert(
 			title : 'New Project'
 			description : 'Description'
-			published : false
+			published : true
 			sortOrder : 0 , 
 			(error, id) -> 
 				if error
