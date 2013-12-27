@@ -50,9 +50,11 @@
 				<img 	class="img-responsive {{#if isEmbed}} hidden {{/if}}" 
 						src="{{this.link}}" 
 						alt="Image">
-				<iframe 
-					class="{{#unless isEmbed}} hidden {{/unless}}"
-					src="{{this.link}}" height="300px" width="400px" frameborder="0" allowfullscreen></iframe>
+				<div class="embed-container">
+					<iframe 
+						class="{{#unless isEmbed}} hidden {{/unless}}"
+						src="{{this.link}}" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 			<div class="col-md-1 {{#unless allowEdits}} hidden {{/unless}}">
 				<button class="btn btn-link sort-up">
