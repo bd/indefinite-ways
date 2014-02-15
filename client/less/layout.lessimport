@@ -9,6 +9,7 @@
 .description-container{
 	.make-md-column(4; @gutter: @grid-gutter-width);
 	padding-left: -10px;
+	padding-top: 65px;
 }
 
 .work-container{
