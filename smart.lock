@@ -9,8 +9,8 @@
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v0.3.7",
-        "commit": "5dd0d142c870647b910be80bc777b96f0dd45e5e"
+        "tag": "v3.1.0-1",
+        "commit": "329dccb08bfc18c635676dea600ac9953162cda9"
       },
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
@@ -19,8 +19,8 @@
       },
       "impicker": {
         "git": "https://github.com/wulx/impicker.git",
-        "tag": "v1.1.2",
-        "commit": "26f1b4a6ed8f90762c699ad845264ff1065e8ebb"
+        "tag": "v1.2.0",
+        "commit": "29a7a52d27b2cf8447fc24946b0fdbf60c4b12a6"
       }
     }
   }

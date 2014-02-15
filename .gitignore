@@ -3,3 +3,5 @@ local
 .DS_Store
 images/
 tmp/
+meteoric.config.sh
+
