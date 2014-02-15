@@ -1,4 +1,5 @@
 local
-private/*
+#private/*
 .DS_Store
 images/
+tmp/
