@@ -1,9 +1,11 @@
 isAuthorized = () ->
 		# note that at this point there is ever to be but one authorized user
-		user = this.userId.trim() if this.userId
-		authorized = Assets.getText('authorizedUsers').trim() if Assets.getText('authorizedUsers')
-		#console.log "Index of userID = " + authorized.indexOf user
-		authorized.indexOf user >= 0
+		user = if this.userId then this.userId.trim() else "NOT AUTHORIZED"
+		# console.log "user: " + user
+		authorized = Assets.getText('authorizedUsers') if Assets.getText('authorizedUsers')
+		# console.log "Index of userID = " + authorized.indexOf user
+		# console.log "to return: "  +  authorized.indexOf(user.trim()) > -1
+		authorized.indexOf(user.trim()) > -1
 
 Meteor.methods(
 	isAuthorized : isAuthorized
