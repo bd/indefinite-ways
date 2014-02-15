@@ -5,6 +5,7 @@ Template.Work.events
 		toggleSessionVar 'showWorkDetails'
 
 	'click #uploadWorkButton' : () ->
+		console.log "loading new work"
 		id = this._id
 		# largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
 		filepicker.pick (InkBlob)->
@@ -19,8 +20,7 @@ Template.Work.events
 			Work.insert work
 
 	'click #acceptEmbedButton' : (e, t) ->
-		id = this._id
-		# largest = _.max _.pluck(Work.find({project:id}).fetch(), 'sortOrder')
+		id = Session.get "embedInProject"
 		url = t.find("input#embedLink").value
 		work = 
 			project : id
@@ -28,7 +28,11 @@ Template.Work.events
 			sortOrder : 0
 			mimetype : "url/embed"
 		Work.insert work
+		Session.set "embedInProject" , false 
 
+	'click #embedButton' : (e, t) ->
+		#console.log "attempting to embed in: " + this._id
+		Session.set "embedInProject" , this._id
 
 Template.Work.helpers
 	works : () ->
