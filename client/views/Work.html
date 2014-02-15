@@ -50,7 +50,7 @@
 				<img 	class="img-responsive {{#if isEmbed}} hidden {{/if}}" 
 						src="{{this.link}}" 
 						alt="Image">
-				<div class="embed-container">
+				<div class="embed-container {{#unless isEmbed}} hidden {{/unless}}">
 					<iframe 
 						class="{{#unless isEmbed}} hidden {{/unless}}"
 						src="{{this.link}}" frameborder="0" allowfullscreen></iframe>
