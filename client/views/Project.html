@@ -1,8 +1,18 @@
 <template name="Project">
-	<button class="btn btn-link remove-project {{#unless allowEdits}}hidden{{/unless}}">
-		<span class="glyphicon glyphicon-remove"></span>
-		delete project
-	</button>
+	<div class="row {{#unless allowEdits}} hidden {{/unless}}">
+		<button class="btn btn-link sort-up">
+					<span class="glyphicon glyphicon-chevron-up"> </span>
+					move up
+				</button>
+		<button class="btn btn-link remove-project {{#unless allowEdits}}hidden{{/unless}}">
+			<span class="glyphicon glyphicon-remove"></span>
+			delete project
+		</button>
+		<button class="btn btn-link sort-down">
+					<span class="glyphicon glyphicon-chevron-down"> </span>
+					move down
+				</button>
+	</div>
 	<div class="project-container">
 		{{> Description}}
 		{{> Work}}

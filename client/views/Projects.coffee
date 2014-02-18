@@ -19,7 +19,9 @@ Template.Projects.created = () ->
 	
 Template.Projects.helpers
 	projects: () ->
-		Projects.find()
+		Projects.find  {}, {sort: [['sortOrder', 'asc']]}
+
+
 
 Template.Projects.events
 	'click #newProjectButton': () ->
