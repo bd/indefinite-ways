@@ -9,6 +9,29 @@
 </body>
 
 <template name="Page">  
+  {{#if showAbout}}
+	{{> About}}
+  {{/if}}
+  {{#if showConsulting}}
+  	{{> Consulting}}
+  {{/if}}
   {{> Projects}}
 </template>
 
+<template name="Consulting">
+<div class="row">
+	<div class="apologia">
+		<h2>Consulting</h2>
+		<p>I like solving problems, and I am good at it. For this reason, I consult with people about problems they need solved. </p>
+	</div>
+</div>
+</template>
+
+<template name="About">
+	<div class="row">
+	<div class="apologia">
+		<h2>About</h2>
+		<p>I became an artist because of the freedom of inquiry in the discipline. I wanted to pursue the thread of inquiry into how we can live and create throughout a diverse range of knowledge, and histories. It's a strange process, rewarding and frustrating by turns. </p>
+	</div>
+</div>
+</template>

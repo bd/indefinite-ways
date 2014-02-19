@@ -12,6 +12,12 @@
 	padding-top: 65px;
 }
 
+.apologia{
+	.make-md-column(6; @gutter: @grid-gutter-width);
+	.make-md-column-offset(3);
+	margin: 40px;
+}
+
 .work-container{
 	.make-md-column(10; @gutter: @grid-gutter-width);
 	margin-top: 0px;
